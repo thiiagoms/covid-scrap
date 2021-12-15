@@ -4,7 +4,8 @@
   </a>
      <h3 align="center">Get all COVID cases, deaths and recovery cases! :mask:</h3>
 </p>
-Litle COVID scrap on [Worldmeters](https://www.worldometers.info/coronavirus/)
+Litle COVID scrap on Worldmeters.
+<br><br>
 
 - [Dependencies](#Dependencies)
 - [Run](#Run)

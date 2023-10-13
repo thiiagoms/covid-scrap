@@ -1,29 +1,50 @@
-<p align="center">
-  <a href="https://github.com/thiiagoms/covid-scrap">
-    <img src="assets/virus.png" alt="Logo" width="80" height="80">
-  </a>
-     <h3 align="center">Get all COVID cases, deaths and recovery cases! :mask:</h3>
-</p>
-Litle COVID scrap on Worldmeters.
-<br><br>
+<div align="center">
+    <a href="https://github.com/thiiagoms/covid-scrap">
+        <img src=".assets/virus.png" alt="Logo" width="80" height="80">
+    </a>
+    <h4 align="center">
+      Coronavirus scrap :mask:
+    </h4>
+    <p float="left">
+        <img
+            src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white"
+            alt="PHP"
+        >
+    </p>
+</div>
 
-- [Dependencies](#Dependencies)
-- [Run](#Run)
+- [Dependencies :package:](#dependencies)
+- [Run :runner:](#run)
 
 ### Dependencies
-* PHP +7.0
+
+- Docker :whale:
 
 ### Run
 
-- Run in terminal:
+01 -) Clone:
 ```bash
-$ php covid.php
+$ git clone https://github.com/thiiagoms/covid-scrap
 ```
-- Output:
-```bash
-$ php covid.php
 
-Cases in the world 😷 => 271,874,932
-Deaths 💀 => 5,340,460
-Recovered ✔️  => 244,454,216
+02 -) Go to project directory:
+```bash
+$ cd covid-scrap
+covid-scrap $
+```
+
+03 -) In your terminal, run:
+
+```bash
+covid-scrap $ docker-compose up -d
+covid-scrap $ docker-compose exc covid-scrap php covid
+
+😷 Total cases: 696,491,670
+💀 Deaths:      6,925,484
+🙏 Recovered:   668,447,956
+```
+
+04 -) Down containers:
+```bash
+covid-scrap $ docker-compose down
 ```

@@ -1,0 +1,32 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+$response = file_get_contents("https://www.worldometers.info/coronavirus/");
+
+if ($response === false) {
+    echo 'Failed to retrieve the webpage content' . PHP_EOL;
+    exit;
+}
+
+$pattern = '/<div class="maincounter-number".*?>\s*<span.*?>\s*([0-9,]+)\s*<\/span>\s*<\/div>/';
+
+if (preg_match_all($pattern, $response, $matches)) {
+
+    $data = [
+        'total'     => $matches[1][0],
+        'deaths'    => $matches[1][1],
+        'recovered' => $matches[1][2]
+    ];
+    echo PHP_EOL;
+    echo "😷 Total cases: {$data['total']}"     . PHP_EOL;
+    echo "💀 Deaths:      {$data['deaths']}"    . PHP_EOL;
+    echo "🙏 Recovered:   {$data['recovered']}" . PHP_EOL;
+    echo PHP_EOL;
+
+    exit;
+}
+
+echo "Failed to apply patterns!";
+exit;

@@ -6,7 +6,7 @@ declare(strict_types=1);
 $response = file_get_contents("https://www.worldometers.info/coronavirus/");
 
 if ($response === false) {
-    echo 'Failed to retrieve the webpage content' . PHP_EOL;
+    echo '[*] Failed to retrieve the webpage content' . PHP_EOL;
     exit;
 }
 
@@ -19,14 +19,11 @@ if (preg_match_all($pattern, $response, $matches)) {
         'deaths'    => $matches[1][1],
         'recovered' => $matches[1][2]
     ];
-    echo PHP_EOL;
-    echo "😷 Total cases: {$data['total']}"     . PHP_EOL;
-    echo "💀 Deaths:      {$data['deaths']}"    . PHP_EOL;
-    echo "🙏 Recovered:   {$data['recovered']}" . PHP_EOL;
-    echo PHP_EOL;
 
+    $template = "\n\n😷 Total cases: %s\n💀 Deaths: %s\n🙏 Recovered: %s \n\n";
+
+    echo sprintf($template, $data['total'], $data['deaths'], $data['recovered']);
     exit;
 }
 
 echo "Failed to apply patterns!";
-exit;
